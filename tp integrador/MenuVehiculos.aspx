@@ -227,7 +227,7 @@
                                 <br />precio:
                                 <asp:Label ID="precioLabel" runat="server" Text='<%# Eval("precio") %>' />
                                 <br />
-                                <asp:Button ID="btnSeleccionar" runat="server" Text="Seleccionar" OnCommand="btnSeleccionar_Command" />
+                                <asp:Button ID="btnSeleccionar" runat="server" Text="seleccionar" OnCommand="btnSeleccionar_Command"  CommandName="btnSeleccionar_Click" CommandArgument='<%# Eval("nombre_mo")+"-"+Eval("tipo_mo")+"-"+Eval("cod_marca_mo")+"-"+ Eval("cant_puer_mo")+"-" +Eval("precio") %>' />
                                 <br />
                                 </td>
                         </ItemTemplate>
@@ -272,7 +272,7 @@
                             </td>
                         </SelectedItemTemplate>
                     </asp:ListView>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:concesionaria2ConnectionString %>" SelectCommand="SELECT [imagen_url_autos], [cod_marca_mo], [nombre_mo], [tipo_mo], [cant_puer_mo], [precio] FROM [Modelos]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:concesionariaConnectionString3 %>" SelectCommand="SELECT [imagen_url_autos], [cod_marca_mo], [nombre_mo], [tipo_mo], [cant_puer_mo], [precio] FROM [Modelos]"></asp:SqlDataSource>
                             </td>
                             <td class="auto-style39"></td>
                             <td class="auto-style40">

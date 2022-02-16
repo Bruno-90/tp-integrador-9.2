@@ -36,7 +36,11 @@ namespace menu_clientes
 
         protected void btnSeleccionar_Command(object sender, CommandEventArgs e)
         {
+            string s = "";
+            s = e.CommandArgument.ToString();
+            string[] vectorArgumento = s.Split('-');
 
+            Response.Redirect("Formulario01.aspx?nombre=" + vectorArgumento[0] + "&tipo=" + vectorArgumento[1] + "&marca=" + vectorArgumento[2] + "&cantPuertas=" + vectorArgumento[3] +"&Precio=" + vectorArgumento[4]); 
         }
     }
 }

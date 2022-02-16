@@ -61,7 +61,16 @@ namespace Datos
             SqlParametros = Comando.Parameters.Add("@PATENTE", SqlDbType.VarChar);
             SqlParametros.Value = veh.GetPatenteVE();
         }
-
+//////////////////////////////PARA CAMBIAR EL ESTADO
+          public int CambiarEstado(Vehiculos veh)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosCambiarEstadoVehiculo(ref comando, veh);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spCambiarEstado"); 
+        }
+        
+        
+        
         private void ArmarParametrosVehiculosAgregar(ref SqlCommand Comando, Vehiculos veh)
         {
             SqlParameter SqlParametros = new SqlParameter();

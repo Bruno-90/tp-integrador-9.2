@@ -74,12 +74,24 @@
                 <tr>
                     <td class="auto-style2">Codigo marca del vehiculo:</td>
                     <td class="auto-style5">
-                        <asp:TextBox ID="txtCodMarca" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="ddlMarca" runat="server">
+                        </asp:DropDownList>
                     </td>
                     <td class="auto-style7">
-                        <asp:RequiredFieldValidator ID="rfvMarca" runat="server" ErrorMessage="no se ingreso codigo de marca"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvMarca" ControlToValidate="ddlMarca" runat="server" ErrorMessage="no se selecciono codigo de marca"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style9">Codigo de gamma:</td>
+                    <td class="auto-style10">
+                        <asp:DropDownList ID="ddlGamma" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                    <td class="auto-style11">
+                        <asp:RequiredFieldValidator ID="rfvGamma" runat="server" ControlToValidate="ddlGamma" ErrorMessage="Seleccione una gamma"></asp:RequiredFieldValidator>
+                    </td>
+                    <td class="auto-style12">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3">Codigo modelo del vehiculo:</td>
@@ -87,7 +99,7 @@
                         <asp:TextBox ID="txtCodModelo" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style8">
-                        <asp:RequiredFieldValidator ID="rfvModelo" runat="server" ErrorMessage="no se ingreso codigo de modelo"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvModelo" runat="server" ControlToValidate ="txtCodModelo" ErrorMessage="no se ingreso codigo de modelo"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style4">&nbsp;</td>
                 </tr>
@@ -97,37 +109,37 @@
                         <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style7">
-                        <asp:RequiredFieldValidator ID="rfvColor" runat="server" ErrorMessage="No se ingreso nombre"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvColor" runat="server" ControlToValidate="txtNombre" ErrorMessage="No se ingreso nombre"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">Tipo de modelo (auto-camioneta-furgón):</td>
                     <td class="auto-style10">
-                        <asp:TextBox ID="txtTipo" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtTipo" runat="server" ></asp:TextBox>
                     </td>
                     <td class="auto-style11">
-                        <asp:RequiredFieldValidator ID="rfvColor0" runat="server" ErrorMessage="No se ingreso modelo" ControlToValidate="txtCodModelo"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvTipo" runat="server" ErrorMessage="No se ingreso modelo" ControlToValidate="txtTipo"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style12"></td>
                 </tr>
                 <tr>
                     <td class="auto-style9">Cantidad de puertas:</td>
                     <td class="auto-style10">
-                        <asp:TextBox ID="TxtPuertas" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TxtPuertas" TextMode="Number" runat="server" ></asp:TextBox>
                     </td>
                     <td class="auto-style11">
-                        <asp:RequiredFieldValidator ID="rfvPuertas" runat="server" ErrorMessage="no se introdujieron las puertas"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvPuertas" runat="server" ControlToValidate="TxtPuertas" ErrorMessage="no se introdujieron las puertas"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style12">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">Codigo de gamma:</td>
+                    <td class="auto-style9">Precio (decimal con coma):</td>
                     <td class="auto-style10">
-                        <asp:TextBox ID="txtGamma" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TxtPrecio" runat="server" ></asp:TextBox>
                     </td>
                     <td class="auto-style11">
-                        <asp:RequiredFieldValidator ID="rfvGamma" runat="server" ErrorMessage="Codigo no ingresado"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvPrecio" runat="server" ControlToValidate="TxtPrecio" ErrorMessage="no se indico el precio"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style12">&nbsp;</td>
                 </tr>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,13 @@ namespace Datos
         {
             SqlCommand comando = new SqlCommand();
             ArmarParametroMarcaAgregar(ref comando, marca);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "spEditarMarcas");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spEditarMarcas"); //spEditarMarcas  spAgregarMarca
+        }
+        public int AgregarMarcaDAO2(Marcas marca)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametroMarcaAgregar(ref comando, marca);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spAgregarMarca"); //spEditarMarcas  spAgregarMarca
         }
 
         private void ArmarParametroMarcaAgregar(ref SqlCommand comando, Marcas marca)
@@ -45,7 +51,28 @@ namespace Datos
             SqlParametros.Value = marca.GetCodMarcaMA();
         }
 
-        public Boolean existeMarca(Marcas marca)
+        public int ActualizarMarcaDAO(Marcas marca)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosMarcaEditar(ref comando, marca);
+
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spEditarMarcas");
+
+        }
+
+        private void ArmarParametrosMarcaEditar(ref SqlCommand comando, Marcas mar)
+        {
+            SqlParameter parametro = new SqlParameter();
+
+            parametro = comando.Parameters.Add("@Nombre_Ma", SqlDbType.VarChar);
+            parametro.Value = mar.GetNombMarcaMA();
+
+            SqlParameter parametro1 = new SqlParameter();
+            parametro1 = comando.Parameters.Add("@Cod_Ma", SqlDbType.VarChar);
+            parametro.Value = mar.GetCodMarcaMA();
+        }
+
+            public Boolean existeMarca(Marcas marca)
         {
             string consulta = "select* from marcas where Nombre_Ma= '" + marca.GetNombMarcaMA() + "'";
             return ds.existe(consulta);

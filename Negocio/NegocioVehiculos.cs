@@ -25,7 +25,7 @@ namespace Negocio
             return dato.getVehiculos(veh);
         }
 
-        public bool eliminarVehiculos(string cod)
+       /* public bool eliminarVehiculos(string cod)
         {
             //Validar si existente 
             DatosVehiculo dato = new DatosVehiculo();
@@ -36,7 +36,15 @@ namespace Negocio
                 return true;
             else
                 return false;
-        }
+        }*/
+        /////////////////////////SE CAMBIA ELIMINAR POR DAR DE BAJA EL AUTO AL MOMENTO DE ACEPTAR LOS DATOS DE FORMULARIO
+          public bool CambiarEstado(Vehiculos veh)
+        {
+            if (veh.GetPatenteVE() == null)
+            {
+                return false;
+            }
+
 
         public bool agregarVehiculos(Vehiculos veh)
         {

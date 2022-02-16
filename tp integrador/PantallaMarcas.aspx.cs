@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,6 +31,7 @@ namespace pantalla_modelos
 
         protected void grdMarcas_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            bool ejecuto= true;
             NegocioMarcas neg = new NegocioMarcas();
 
             String cod_ma= ((Label)grdMarcas.Rows[e.RowIndex].FindControl("lblCodMarca")).Text;
@@ -40,11 +41,19 @@ namespace pantalla_modelos
             mar.SetCodMarcaMA(cod_ma);
             
 
-            neg.eliminarMarcas(cod_ma);
+            ejecuto= neg.eliminarMarcas(cod_ma);
 
+            if (ejecuto == true)
+            {
             DataTable tablaMarcas = neg.getTabla();
             grdMarcas.DataSource = tablaMarcas;
             grdMarcas.DataBind();
+            }
+            else
+            {
+                lblMsjError.Text = "NO SE PUEDE ELIMINAR LA MARCA SELECCIONADA YA QUE CONTIENE MODELOS RELACIONADOS. ELIMINE LOS VEHICULOS Y MODELOS PRIMERO.";
+            }
+
 
 
            
@@ -52,7 +61,7 @@ namespace pantalla_modelos
 
         protected void grdMarcas_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            
+            lblMsjError.Text = "";
               grdMarcas.EditIndex = e.NewEditIndex;
             DataTable tablaMarcas = neg.getTabla();
             grdMarcas.DataSource = tablaMarcas;

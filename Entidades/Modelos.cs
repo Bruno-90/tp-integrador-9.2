@@ -14,6 +14,7 @@ namespace Entidades
         private string TipoModelo;
         private string CantPuertas;
         private string CodGamma;
+        private decimal Precio;
         private Boolean Estado;
 
         public Modelos()
@@ -82,6 +83,14 @@ namespace Entidades
         public void SetEstadoCL(Boolean NuevoEstado)
         {
             Estado = NuevoEstado;
+        }
+        public decimal GetPrecioMO()
+        {
+            return Precio;
+        }
+         public void SetPrecioMO(decimal NuevoPrecio)
+        {
+            Precio = NuevoPrecio;
         }
     }
 }

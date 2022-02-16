@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,13 +12,44 @@ namespace VistaCliente
     public partial class cliente : System.Web.UI.Page
     {
         NegocioClientes neg = new NegocioClientes();
+
+        private string nombre ="";
+        private string tipo= "";
+        private string marca="";
+        private int cantPuertas ;
+        private decimal Precio;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            nombre = Request.QueryString["nombre"];
+            tipo = Request.QueryString["tipo"];
+            marca = Request.QueryString["marca"];
+            cantPuertas = Convert.ToInt32( Request.QueryString["cantPuertas"]);
+            Precio = Convert.ToDecimal(Request.QueryString["Precio"]);
+
             if (Session["NombreUsuario"] != null)
             {
                 lblUsuario.Text = Session["NombreUsuario"].ToString();
             }
+            CargarDatosAuto();
         }
+
+        private void CargarDatosAuto()
+        {
+            try
+            {
+                lblMarca.Text = marca;
+                lblTipo.Text = tipo;
+                lblModelo.Text = nombre;
+                lblValorAdquisicion.Text = "$ "+ Precio.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
         protected void CheckBox7_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -76,5 +107,7 @@ namespace VistaCliente
             
 
         }
+
+
     }
 }

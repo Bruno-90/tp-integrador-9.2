@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario01.aspx.cs" Inherits="VistaCliente.cliente" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario01.aspx.cs" Inherits="VistaCliente.cliente" %>
 
 <!DOCTYPE html>
 
@@ -20,9 +20,6 @@
         .auto-style89 {
             width: 134px;
         }
-        .auto-style108 {
-            width: 408px;
-        }
         .auto-style101 {
             width: 255px;
         }
@@ -39,7 +36,7 @@
         }
         .auto-style96 {
             height: 34px;
-            width: 408px;
+            width: 215px;
         }
         .auto-style102 {
             height: 34px;
@@ -55,7 +52,7 @@
         }
         .auto-style109 {
             height: 36px;
-            width: 408px;
+            width: 215px;
         }
         .auto-style103 {
             height: 36px;
@@ -81,7 +78,7 @@
         }
         .auto-style98 {
             height: 29px;
-            width: 408px;
+            width: 215px;
         }
         .auto-style104 {
             height: 29px;
@@ -97,7 +94,7 @@
         }
         .auto-style99 {
             height: 3px;
-            width: 408px;
+            width: 215px;
         }
         .auto-style105 {
             height: 3px;
@@ -113,7 +110,7 @@
         }
         .auto-style100 {
             height: 30px;
-            width: 408px;
+            width: 215px;
         }
         .auto-style106 {
             height: 30px;
@@ -128,29 +125,6 @@
             width: 134px;
             margin-left: 80px;
         }
-        .auto-style110 {
-            width: 258px;
-        }
-        .auto-style111 {
-            height: 34px;
-            width: 258px;
-        }
-        .auto-style112 {
-            height: 36px;
-            width: 258px;
-        }
-        .auto-style113 {
-            height: 29px;
-            width: 258px;
-        }
-        .auto-style114 {
-            height: 3px;
-            width: 258px;
-        }
-        .auto-style115 {
-            height: 30px;
-            width: 258px;
-        }
         </style>
 </head>
 <body>
@@ -163,16 +137,16 @@
                         01<br />
                         </span></strong></td>
                     <td class="auto-style89">&nbsp;</td>
-                    <td class="auto-style108">
-                        <asp:LinkButton ID="lbCancelar" runat="server" CausesValidation="False" OnClick="LinkButton1_Click1">Cancelar</asp:LinkButton>
+                  <%--  <td class="auto-style108">
+                        <asp:LinkButton ID="lbCancelar" runat="server" CausesValidation="False">Cancelar</asp:LinkButton>
                         <br />
                         <asp:Label ID="lblcancelar" runat="server" Text="esta seguro?"></asp:Label>
                         <br />
                         <asp:LinkButton ID="lbsi" runat="server" CausesValidation="False" PostBackUrl="~/MenuVehiculos.aspx">si</asp:LinkButton>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:LinkButton ID="lbno" runat="server" CausesValidation="False" OnClick="LinkButton1_Click">no</asp:LinkButton>
-                    </td>
-                    <td class="auto-style110">
+                        <asp:LinkButton ID="lbno" runat="server" CausesValidation="False">no</asp:LinkButton>
+                    </td>--%>
+                    <td class="auto-style101">
                         <asp:Label ID="lblCodFormulario" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style101">Usuario que genero el formulario:&nbsp;
@@ -191,7 +165,7 @@
                     <td class="auto-style96">
                         <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="no se ingreso nombre"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style111">&nbsp;</td>
+                    <td class="auto-style102">&nbsp;</td>
                     <td class="auto-style102">&nbsp;</td>
                 </tr>
                 <tr>
@@ -202,18 +176,16 @@
                     <td class="auto-style109">
                         <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" ErrorMessage="ingrese apellido"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                     <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style40">denominacion:</td>
+                    <td class="auto-style40">&nbsp;</td>
                     <td class="auto-style91">
-                        <asp:TextBox ID="txtDenominacion" runat="server"></asp:TextBox>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style109">
-                        <asp:RequiredFieldValidator ID="rfvDenominacion" runat="server" ControlToValidate="txtDenominacion" ErrorMessage="ingrese denominacion"></asp:RequiredFieldValidator>
-                    </td>
-                    <td class="auto-style112">sacar esta fila</td>
+                        &nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                     <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
@@ -224,7 +196,7 @@
                     <td class="auto-style109">
                         <asp:RegularExpressionValidator ID="revMail" runat="server" ControlToValidate="txtEmail" ErrorMessage="mail invalido verifique que sea el correcto" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                     <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
@@ -235,7 +207,7 @@
                     <td class="auto-style109">
                         <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="introduzca un numero"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                     <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
@@ -246,7 +218,7 @@
                     <td class="auto-style109">
                         <asp:RequiredFieldValidator ID="rfvCalle" runat="server" ControlToValidate="txtCalle" ErrorMessage="introduzca calle"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                     <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
@@ -265,7 +237,7 @@
                         <br />
                         <br />
                     </td>
-                    <td class="auto-style112">Codigo Postal:<br />
+                    <td class="auto-style103">Codigo Postal:<br />
                         <asp:TextBox ID="txtCodPostal" runat="server"></asp:TextBox>
                         <br />
                         <br />
@@ -283,9 +255,9 @@
                     <td class="auto-style91">
                         <asp:RequiredFieldValidator ID="rfvPartido" runat="server" ControlToValidate="txtPartido" ErrorMessage="no se ingreso partido"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style109">Provincia:&nbsp; <asp:TextBox ID="txtProvincia" runat="server"></asp:TextBox>
+                    <td class="auto-style109">Provincia:<asp:TextBox ID="txtProvincia" runat="server"></asp:TextBox>
                     </td>
-                    <td class="auto-style112">
+                    <td class="auto-style103">
                         <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="txtProvincia" ErrorMessage="no se ingreso partido"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style103">&nbsp;</td>
@@ -301,13 +273,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style61" colspan="2">
-                        &nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;
-                        </td>
+                        &nbsp;</td>
                     <td class="auto-style61" colspan="2">
-                        &nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;
-                        </td>
+                        &nbsp;</td>
                     <td class="auto-style61">&nbsp;</td>
                 </tr>
                 <tr>
@@ -318,7 +286,7 @@
                     <td class="auto-style98">
                         <asp:RangeValidator ID="rvDni" runat="server" ControlToValidate="txtDni" ErrorMessage="dni fuera de rango" MaximumValue="99999999" MinimumValue="10000000" Type="Integer"></asp:RangeValidator>
                     </td>
-                    <td class="auto-style113">&nbsp;</td>
+                    <td class="auto-style104">&nbsp;</td>
                     <td class="auto-style104">&nbsp;</td>
                 </tr>
                 <tr>
@@ -329,7 +297,7 @@
                     <td class="auto-style99">
                         <asp:RegularExpressionValidator ID="revFecha" runat="server" ControlToValidate="txtFecha" ErrorMessage="fecha no valida" ValidationExpression="^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}$"></asp:RegularExpressionValidator>
                     </td>
-                    <td class="auto-style114">
+                    <td class="auto-style105">
                         &nbsp;</td>
                     <td class="auto-style105">&nbsp;</td>
                 </tr>
@@ -346,7 +314,7 @@
                         &nbsp;</td>
                     <td class="auto-style100">
                         &nbsp;</td>
-                    <td class="auto-style115">&nbsp;</td>
+                    <td class="auto-style106">&nbsp;</td>
                     <td class="auto-style106">&nbsp;</td>
                 </tr>
                 <tr>
@@ -361,7 +329,7 @@
                         <asp:Label ID="lblMarca" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style109">&nbsp;</td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style40">Tipo:</td>
@@ -369,7 +337,7 @@
                         <asp:Label ID="lblTipo" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style109">&nbsp;</td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style40">Modelo:</td>
@@ -377,31 +345,7 @@
                         <asp:Label ID="lblModelo" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style109">&nbsp;</td>
-                    <td class="auto-style112">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style40">Marca Motor:</td>
-                    <td class="auto-style91">
-                        <asp:Label ID="lblMarcaMotor" runat="server"></asp:Label>
-                    </td>
-                    <td class="auto-style109">&nbsp;</td>
-                    <td class="auto-style112">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style40">Nro. de Motor:</td>
-                    <td class="auto-style91">
-                        <asp:Label ID="lblNroMotor" runat="server"></asp:Label>
-                    </td>
-                    <td class="auto-style109"></td>
-                    <td class="auto-style112"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style40">Marca Chasis:</td>
-                    <td class="auto-style91">
-                        <asp:Label ID="lblMarcaChasis" runat="server"></asp:Label>
-                    </td>
-                    <td class="auto-style109">&nbsp;</td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style40">Gamma:</td>
@@ -409,21 +353,51 @@
                         <asp:Label ID="lblGamma" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style109">&nbsp;</td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style40">Valor de Adquisicion</td>
                     <td class="auto-style91">
                         <asp:Label ID="lblValorAdquisicion" runat="server"></asp:Label>
                     </td>
+                    <td class="auto-style109"></td>
+                    <td class="auto-style103"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style40">Color: </td>
+                    <td class="auto-style91">
+                        <asp:DropDownList ID="DropDownList1" runat="server" Width="224px">
+                            <asp:ListItem Value="-1">seleccione</asp:ListItem>
+                            <asp:ListItem>blanco</asp:ListItem>
+                            <asp:ListItem>negro</asp:ListItem>
+                            <asp:ListItem>azul</asp:ListItem>
+                            <asp:ListItem>naranja</asp:ListItem>
+                            <asp:ListItem>rojo</asp:ListItem>
+                            <asp:ListItem>verde mate</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td class="auto-style109"></td>
+                    <td class="auto-style103"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style40">&nbsp;</td>
+                    <td class="auto-style91">
+                        &nbsp;</td>
                     <td class="auto-style109">&nbsp;</td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style40">&nbsp;</td>
+                    <td class="auto-style91">
+                        &nbsp;</td>
+                    <td class="auto-style109">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style40">&nbsp;</td>
                     <td class="auto-style91">&nbsp;</td>
                     <td class="auto-style109">&nbsp;</td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style40">&nbsp;</td>
@@ -433,7 +407,7 @@
                     <td class="auto-style109">
                         <asp:Label ID="lblMensajeRegFor" runat="server"></asp:Label>
                     </td>
-                    <td class="auto-style112">&nbsp;</td>
+                    <td class="auto-style103">&nbsp;</td>
                 </tr>
             </table>
         </div>

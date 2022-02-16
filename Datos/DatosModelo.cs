@@ -29,14 +29,14 @@ namespace Datos
 
         public Boolean existeModelo(Modelos mod)
         {
-            String consulta = "Select * from Modelos where NombreModelo='" + mod.GetNombModeloMO() + "'";
+            String consulta = "Select * from Modelos where nombre_mo='" + mod.GetNombModeloMO() + "'";
             return ds.existe(consulta);
         }
 
         public DataTable getTablaModelos()
         {
            
-            DataTable tabla = ds.obtenerTabla("Modelos", "Select * from Modelos");
+            DataTable tabla = ds.obtenerTabla("Modelos", "Select * from Modelos where estado_mo =1");
             return tabla;
         }
 
@@ -54,32 +54,41 @@ namespace Datos
        
             SqlCommand comando = new SqlCommand();
             ArmarParametrosModelosAgregar(ref comando, mod);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "spAgregarModelo");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spAgregarModelos");
+        }
+
+        public int actualizarModelos(Modelos mod)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosModelosAgregar(ref comando, mod);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "spEditarModelos"); //spEditarMarcas  spAgregarMarca
         }
 
         private void ArmarParametrosModelosEliminar(ref SqlCommand Comando, Modelos mod)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@CODMODELO", SqlDbType.Int);
+            SqlParametros = Comando.Parameters.Add("@CodModelo", SqlDbType.Int);
             SqlParametros.Value = mod.GetCodModeloMO();
         }
 
         private void ArmarParametrosModelosAgregar(ref SqlCommand Comando, Modelos mod)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@CODMODELO", SqlDbType.Int);
-            SqlParametros.Value = mod.GetCodModeloMO();
-            SqlParametros = Comando.Parameters.Add("@NOMBREMOD", SqlDbType.VarChar);
-            SqlParametros.Value = mod.GetNombModeloMO();
-            SqlParametros = Comando.Parameters.Add("@CODMARCA", SqlDbType.VarChar);
+            SqlParametros = Comando.Parameters.Add("@CodMarca", SqlDbType.VarChar);
             SqlParametros.Value = mod.GetCodMarcaMO();
-            SqlParametros = Comando.Parameters.Add("@TIPOMOD", SqlDbType.VarChar);
-            SqlParametros.Value = mod.GetTipoMO();
-            SqlParametros = Comando.Parameters.Add("@CANTPUERTAS", SqlDbType.VarChar);
-            SqlParametros.Value = mod.GetCantPuertaMO();
-            SqlParametros = Comando.Parameters.Add("@CODGAMMA", SqlDbType.VarChar);
+            SqlParametros = Comando.Parameters.Add("@CodModelo", SqlDbType.VarChar);
+            SqlParametros.Value = mod.GetCodModeloMO();
+            SqlParametros = Comando.Parameters.Add("@CodGamma", SqlDbType.VarChar);
             SqlParametros.Value = mod.GetCodGammaMO();
-            SqlParametros = Comando.Parameters.Add("@ESTADOMOD", SqlDbType.Binary);
+            SqlParametros = Comando.Parameters.Add("@NombreModelo", SqlDbType.VarChar);
+            SqlParametros.Value = mod.GetNombModeloMO();
+            SqlParametros = Comando.Parameters.Add("@TipoMo", SqlDbType.VarChar);
+            SqlParametros.Value = mod.GetTipoMO();
+            SqlParametros = Comando.Parameters.Add("@cantPuertas", SqlDbType.VarChar);
+            SqlParametros.Value = mod.GetCantPuertaMO();
+            SqlParametros = Comando.Parameters.Add("@Precio", SqlDbType.Decimal);
+            SqlParametros.Value = mod.GetPrecioMO();
+            SqlParametros = Comando.Parameters.Add("@Estado", SqlDbType.Bit);
             SqlParametros.Value = mod.GetEstadoCL();
         }
 
